@@ -6,17 +6,34 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>dynamics example</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <style>
             #inner {
                 top: 45%;
                     left:45%;
                     vertical-align: middle;
+                    clear: both;
                     color: blueviolet;
                     background-color: bisque;
-                        position: absolute;
+                    position: absolute;
+                    cursor: pointer;
+                   text-align: center;
+                    
+            #outer {
+                            
+                position: absolute;
+                top:45%;
+                left: 45%;
+                background-color: cadetblue;
+                width: 6em;
+                height: 3em;
+                            
+                            
+                            
+                   }
                          
                 
             }
@@ -25,7 +42,7 @@ and open the template in the editor.
     <body>
         <div id="outer">
         <span id="inner">
-            <a style="color: cadetblue" href="www.hello.com.tr" target="blank"> Hello </a>
+            Hello
         </span>
     </div>
         <script>
@@ -38,6 +55,13 @@ and open the template in the editor.
                      $ (this).css ("background-color", "green");
                }
            );
+   
+    $('#inner').click(
+                function() {
+                    window.location = "http://www.hello.de";
+                }
+                );
+                    
             </script>
     </body>
 </html>

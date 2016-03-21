@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>  </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
+    </head>
+    <body>
+        <h2> JSON object </h2>
+        <p id="demo"> </p>
+       
+        <script> 
+           var rat= calcRatio (obj.height, obj.weight); 
+    
+var text= '{"name":"John Johnson","street":"Oslo West 16","phone":"555 536846","email":"jjohnson@gmail.com","age":"27","weight":72,"height":1.78}';
+            
+            var obj= JSON.parse(text);
+            $('#demo')[0].innerHTML = obj.name + "<br>"
+           + obj.street + "<br>" + obj.phone + "<br>" + obj.email + "<br>"
+            + obj.age + "<br>" + obj.weight + "<br>" + obj.height;
+    
+       $('#demo')[0].innerHTML = "height weight ratio" + rat;
+       function calcRatio(height,weight) {
+        return height/weight;
+       }
+     
+        </script>
+     </body>
+</html>

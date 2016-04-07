@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>  
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+        
+        <style>
+            #target{
+                position: absolute;
+                left:20px;
+                width: 250px;
+                height: 350px;
+                background-color:crimson;
+            }
+            #arrow{
+                position: absolute;
+                top: 100px;
+                left: 60px;
+                width: 150px;
+                width: 300px;
+                background-color: lightseagreen;
+            }
+             
+            ul
+            {
+                list-style-type: none;
+            }
+        </style>
+           
+        
+        
+            <script type="text/javascript">
+                
+            $(document).ready(function () {
+             
+                $("#arrow").draggable();
+                $("#target").droppable(
+                        {
+                            drop: function () {
+                                $("#arrow").draggable("disable");
+                                $("#target").draggable("disable");
+                                $("#target").css("background-color", "green").html("");
+                                $("#arrow").css("background-color", "green").html("");
+                            }
+                        }
+                );
+            });
+        </script>
+
+    </head>
+    <body>
+        <div>
+
+            <ul id="Name">
+                <li id="t1">eins</li>
+                <li id="t2">zwei</li>
+                <li id="t3">drei</li>
+                <li id="t4">vier</li>
+                <li id="t5">fünf</li>
+                <li id="t6">sechs</li>
+                <li id="t7">sieben</li>
+                <li id="t8">acht</li>
+                <li id="t9">neun</li>
+                <li id="t10">zehn</li>
+            </ul>
+           
+        </div>
+        <script type="text/javascript">
+            $("#arrow").draggable();
+            $("#target").draggable();
+            
+              var elemID_1 = '#Name';
+            var elemID_2 = '#Num';
+            var id = 0;
+            $().ready(function () {
+                for (var i = 1; i <= 10; i++) {
+                    $(elemID_1).append(
+                            "<li id='" + i + "' class='integer'>" +
+                            i + "</li>");
+                    $('#' + i).draggable();
+                }
+            });
+           
+        
+                     for (var i=1;  i<=10; i++) {
+                     $("#Name").droppable("id");
+            var Name = ui.droppable({drop: function (event, ui) {
+                    var Name = ui.draggable.attr("id");
+                    
+                        $("#Num").draggable("disable");
+                        $("#Num").html("&nbsp;").css("background-color", "green");
+                    }
+                });
+            
+            
+               
+                $.fn.randomize = function (selector) {
+                var $elems = selector ? $(this).find(selector) : $(this).children(),
+                        $parents = $elems.parent();
+                $parents.each(function () {
+                    $(this).children(selector).sort(function () {
+                        return Math.round(Math.random()) - 0.5;
+                      
+                    }).detach().appendTo(this);
+                });
+                return this;
+            };
+            $('ul').randomize();
+        }
+        </script>        
+    </body>
+</html>

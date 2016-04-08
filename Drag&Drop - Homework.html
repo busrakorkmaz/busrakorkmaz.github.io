@@ -59,6 +59,7 @@ and open the template in the editor.
     </head>
     <body>
         <div>
+            
 
             <ul id="Name">
                 <li id="t1">eins</li>
@@ -72,38 +73,68 @@ and open the template in the editor.
                 <li id="t9">neun</li>
                 <li id="t10">zehn</li>
             </ul>
+            
+            <ul id="Num">
+                <li id="d1">1</li>
+                <li id="d2">2</li>
+                <li id="d3">3</li>
+                <li id="d4">4</li>
+                <li id="d5">5</li>
+                <li id="d6">6</li>
+                <li id="d7">7</li>
+                <li id="d8">8</li>
+                <li id="d9">9</li>
+                <li id="d10">10</li>
+            </ul>
            
         </div>
         <script type="text/javascript">
             $("#arrow").draggable();
-            $("#target").draggable();
+            $("#target").droppable();
             
-              var elemID_1 = '#Name';
-            var elemID_2 = '#Num';
-            var id = 0;
-            $().ready(function () {
-                for (var i = 1; i <= 10; i++) {
-                    $(elemID_1).append(
-                            "<li id='" + i + "' class='integer'>" +
-                            i + "</li>");
-                    $('#' + i).draggable();
-                }
-            });
-           
-        
-                     for (var i=1;  i<=10; i++) {
-                     $("#Name").droppable("id");
-            var Name = ui.droppable({drop: function (event, ui) {
-                    var Name = ui.draggable.attr("id");
+     var numText = ['eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn'];
+     var ulText = $('#Name');
+     var ulNum = $('#Num');
+     
+      for (var i = 1; i< numText; i++) {
+          ulText.append('<li' id= "t' + (i) + '">' + numText(i) + '</li>');
+          ulNum.append('<li' id= "n' + (i) + '">' + numText(i) + '</li>');
+            
+            }
+            
+            for( var i=0; 1 < numTest.length; i++) {
+              $("#n" + i).draggable();
+              $("#n" + i). data("index", (index: i));
+              $("#t" + i). data("index", (index: i));
+             $("#t").droppable({drop: function (event, ui) {
+                    var di = ui.draggable.attr("id");
+                    var ti = this.id;
+                    var niElem = $('#' + ni);
+                    var tiElem = $('#' + ti);
                     
-                        $("#Num").draggable("disable");
-                        $("#Num").html("&nbsp;").css("background-color", "green");
-                    }
-                });
+                     if (niElem.data("index").index === tiElem.data ("index").index) { 
+                    niElem.draggable("disable");
+                    niElem.css("display", "none");
+                    
+                    
+            } else {
+                var left = Math.floor((Math.random()* (dimx - 20) + 10);
+                var top = Math.floor((Math.random()* (dimy - 20)) + 10);
+                niElem.css("left", left + "px");
+                niElem.css("display","none");
+                hidden++;
+        }
+        
+        if (hidden === numText.length) {
+            $('ul').randomise();
+            $('#numName').sortable
+        
             
+            } else {
             
-               
-                $.fn.randomize = function (selector) {
+        }
+        
+                 $.fn.randomize = function (selector) {
                 var $elems = selector ? $(this).find(selector) : $(this).children(),
                         $parents = $elems.parent();
                 $parents.each(function () {

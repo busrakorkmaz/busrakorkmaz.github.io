@@ -4,9 +4,10 @@ var numbers = [];
 var numCorrect = 0;
 var secLeft = 45;
 var timer =null;
-var totalPoint=0;
+
 var truePoint=0;
 var falsePoint=0;
+var myScore= 0;
 
 
 function Numbers(numbersCookie, numCorrectCookie) {
@@ -91,8 +92,11 @@ function checkPlacement(event, ui, ti) {
         
         if(numCorrect === 11){
             stopInterval();
-            totalPoint = (parseInt(truePoint+1)*5)+(parseInt(falsePoint)*-1)+parseInt(secLeft);
-            $("#point").html(parseInt(totalPoint));
+            var score = (parseInt(truePoint+1)*5)+(parseInt(falsePoint)*-1)+parseInt(secLeft);
+           
+            document.getElementById('myScore').innerHTML = "Score: " + score;
+            
+            
         }
         checkPlacementStatus();
         truePoint++;
